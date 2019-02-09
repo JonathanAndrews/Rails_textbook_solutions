@@ -11,10 +11,10 @@ class CartsController < ApplicationController
   # GET /carts/1
   # GET /carts/1.json
   def show
-    requested_cart = params[:id].to_i
-    unless (session[:cart_id] == requested_cart)
-      redirect_to store_index_url
-    end
+    # requested_cart = params[:id].to_i
+    # unless (session[:cart_id] == requested_cart)
+    #   redirect_to store_index_url
+    # end
   end
 
   # GET /carts/new
@@ -59,7 +59,7 @@ class CartsController < ApplicationController
   # DELETE /carts/1
   # DELETE /carts/1.json
   def destroy
-    @cart.destroy if @cart.id == session[:card_id]
+    @cart.destroy if @cart.id == session[:cart_id]
     session[:cart_id] = nil
     respond_to do |format|
       format.html { redirect_to store_index_url, notice: 'Cart was successfully destroyed.' }
