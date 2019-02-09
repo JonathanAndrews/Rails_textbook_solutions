@@ -18,6 +18,13 @@
     </header>
     <section class="content">
       <nav class="side_nav">
+        <% if @cart %>
+
+        <div id="cart" class="carts">
+          <%= render @cart %>
+        </div>
+        <% end %>
+
         <ul>
           <li class="date-time"><%= DateTime.now.strftime("%d/%m/%Y at %I:%M%p")  %></li>
           <li><a href="/">Home</a></li>
