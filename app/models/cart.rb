@@ -11,6 +11,15 @@ class Cart < ApplicationRecord
     current_item
   end
 
+  def remove_line_item(line_item)
+    if line_item.quantity > 1
+      line_item.quantity -= 1
+      line_item.save
+    else
+      line_item.destroy
+    end
+  end
+
   def total_price
     line_items.to_a.sum { |item| item.total_price }
   end
