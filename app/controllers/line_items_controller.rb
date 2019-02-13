@@ -62,7 +62,7 @@ class LineItemsController < ApplicationController
     @cart = Cart.find(@line_item.cart_id)
     @cart.remove_line_item(@line_item)
     respond_to do |format|
-      format.html { redirect_to store_index_url, notice: 'Line item was successfully destroyed.' }
+      format.html { redirect_to line_items_url, notice: 'Line item was successfully destroyed.' }
       format.js
       format.json { head :no_content }
     end
