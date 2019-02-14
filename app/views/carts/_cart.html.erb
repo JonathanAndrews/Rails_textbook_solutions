@@ -20,9 +20,10 @@
                   method: :delete,
                   data: { confirm: 'Are you sure?' },
                   remote: true  %>
-  
-    <%= button_to 'Checkout', new_order_path,
-                  method: :get,
-                  class: "checkout" %>
+    <% unless current_page?(controller: 'orders', action: 'new') %>
+      <%= button_to 'Checkout', new_order_path,
+                    method: :get,
+                    class: "checkout" %>
+    <% end %>
   </div>
 </article>
