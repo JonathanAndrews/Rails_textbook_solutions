@@ -31,6 +31,20 @@ Rails.application.configure do
   # Store uploaded files on the local file system in a temporary directory
   config.active_storage.service = :test
 
+  Depot::Application.configure do 
+    config.action_mailer.delivery_method = :test
+    
+    config.action_mailer.smtp_settings = {
+      address: "smtp.gmail.com",
+      port: 587,
+      domain: "domain.of.sender.net",
+      authentication: "plain",
+      user_name: "dave",
+      password: "secret",
+      enable_starttls_auto: true
+    }
+  end
+
   config.action_mailer.perform_caching = false
 
   # Tell Action Mailer not to deliver emails to the real world.
